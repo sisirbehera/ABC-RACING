@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <!-- <img class="logo" src="./assets/icon-72x72.png" alt="angular logo"/> -->
+      <span translate>Racers</span>
+    </h1>
+    <app-loader [isLoading]="isLoading"></app-loader>
+    <ul class="user-list" [hidden]="isLoading">
+      <li
+        *ngFor="let user of users$"
+      >
+        <span>{{ user | json }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

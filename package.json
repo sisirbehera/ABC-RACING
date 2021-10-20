@@ -1,12 +1,19 @@
 {
-  "name": "abc-raceing",
-  "version": "0.0.0",
+  "name": "abc-racing",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run write:env -s && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run abc-racing:serve-ssr",
+    "serve:ssr": "node dist/abc-racing/server/main.js",
+    "build:ssr": "ng build && ng run abc-racing:server",
+    "prerender": "ng run abc-racing:prerender",
+    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
+    "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
+    "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\""
   },
   "private": true,
   "dependencies": {
@@ -17,7 +24,17 @@
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/platform-server": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@angular/service-worker": "~12.2.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@ng-bootstrap/ng-bootstrap": "^11.0.0-beta.2",
+    "@nguniversal/express-engine": "^12.1.1",
+    "@ngx-translate/core": "^13.0.0",
+    "angulartics2": "^10.1.0",
+    "bootstrap": "^5.0.2",
+    "express": "^4.15.2",
+    "localstorage-polyfill": "^1.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -26,6 +43,13 @@
     "@angular-devkit/build-angular": "~12.2.1",
     "@angular/cli": "~12.2.1",
     "@angular/compiler-cli": "~12.2.0",
+    "@angular/language-service": "~12.1.1",
+    "@biesbjerg/ngx-translate-extract": "^7.0.3",
+    "@biesbjerg/ngx-translate-extract-marker": "^1.0.0",
+    "@ngneat/until-destroy": "^8.1.4",
+    "@nguniversal/builders": "^12.1.1",
+    "@ngx-rocket/scripts": "^5.1.1",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",
@@ -35,5 +59,16 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
   }
 }
