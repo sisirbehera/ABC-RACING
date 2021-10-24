@@ -1,16 +1,20 @@
-<div class="container-fluid">
+
+<app-hero-carousel></app-hero-carousel>
+<div class="container">
+  <hr class="featurette-divider">
   <div class="jumbotron text-center">
     <h1>
-      <!-- <img class="logo" src="./assets/icon-72x72.png" alt="angular logo"/> -->
-      <span translate>Racers</span>
+      <span translate>Our Racers</span>
     </h1>
     <app-loader [isLoading]="isLoading"></app-loader>
-    <ul class="user-list" [hidden]="isLoading">
+    <ul class="user-list" *ngIf="users$ && !isLoading">
       <li
         *ngFor="let user of users$"
       >
-        <span>{{ user | json }}</span>
+        <span>{{ user.name }}</span>
       </li>
     </ul>
   </div>
 </div>
+<app-marketing></app-marketing>
+<app-features></app-features>

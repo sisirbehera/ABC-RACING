@@ -6,6 +6,9 @@ import { SharedModule } from '@shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { Angulartics2Module } from 'angulartics2';
+import { MarketingComponent } from './marketing/marketing.component';
+import { FeaturesComponent } from './features/features.component';
+import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 
 @NgModule({
   imports: [
@@ -16,7 +19,10 @@ import { Angulartics2Module } from 'angulartics2';
     HomeRoutingModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    MarketingComponent,
+    FeaturesComponent,
+    HeroCarouselComponent
   ]
 })
 export class HomeModule { }

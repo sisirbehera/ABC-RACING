@@ -5,6 +5,8 @@ import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [
+    // Fallback when no prior route is matched
+  // { path: '**', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: marker('Login') } }
 ];
 

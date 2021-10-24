@@ -41,16 +41,20 @@ export interface Company {
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  users$ = [];
   isLoading = false;
+  users$: any;
 
   constructor(private userDataService: UserDataService) { }
 
   ngOnInit() {
     this.isLoading = true;
-    this.userDataService.getUsers()
-      .pipe(finalize(() => { this.isLoading = false; }))
-      .subscribe((data: any) => { this.users$ = data; });
+      this.userDataService.getUsers().subscribe(
+        (data: any) => {
+          this.users$ = data;
+          console.log('this.users$', this.users$);
+          this.isLoading = false;
+        }
+      );
   }
 
 }

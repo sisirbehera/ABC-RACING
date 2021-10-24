@@ -1,0 +1,44 @@
+.bd-footer {
+  background-color: #f2f2f2;
+}
+
+ul.socialIcons {
+  padding: 0;
+  text-align: center;
+}
+
+.socialIcons li {
+  background-color: yellow;
+  list-style: none;
+  display: inline-block;
+  margin: 4px;
+  border-radius: 2em;
+  overflow: hidden;
+  padding: 0.5em 1em;
+}
+
+.socialIcons li a {
+  display: block;
+  font-family: arial;
+  color: #fff;
+}
+
+.socialIcons .facebook {
+  background-color: #3b5998;
+  box-shadow: 0 0 16px #3b5998;
+}
+
+.socialIcons .twitter {
+  background-color: #00aced;
+  box-shadow: 0 0 16px #00aced;
+}
+
+.socialIcons .instagram {
+  background-color: #cd486b;
+  box-shadow: 0 0 16px #cd486b;
+}
+
+.socialIcons .pinterest {
+  background-color: #c92228;
+  box-shadow: 0 0 16px #c92228;
+}
