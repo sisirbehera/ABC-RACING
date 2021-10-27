@@ -1,20 +1,36 @@
-
 <app-hero-carousel></app-hero-carousel>
-<div class="container">
-  <hr class="featurette-divider">
+<div class="container users">
   <div class="jumbotron text-center">
-    <h1>
-      <span translate>Our Racers</span>
+    <h1 class="py-3">
+      <span translate>Our Top Racers</span>
     </h1>
     <app-loader [isLoading]="isLoading"></app-loader>
-    <ul class="user-list" *ngIf="users$ && !isLoading">
-      <li
-        *ngFor="let user of users$"
-      >
-        <span>{{ user.name }}</span>
-      </li>
-    </ul>
+    <!-- Three columns of text below the carousel -->
+    <div class="row" *ngIf="users$ && !isLoading">
+      <ng-container *ngFor="let user of users$; let i = index">
+        <div class="col-lg-4" *ngIf="i < 3">
+          <i
+            class="bd-placeholder-img rounded-circle"
+            style="font-size: 140px"
+            class="fas fa-user-circle"
+          ></i>
+          <h2>{{ user.name }}</h2>
+          <p>{{ user.company.catchPhrase }}</p>
+          <button
+            class="btn btn-info"
+            angulartics2On="click"
+            angularticsAction="Click button below {{ user.name }} profile"
+            angularticsCategory="test"
+            href="#"
+            role="button"
+          >
+            View details »
+          </button>
+        </div>
+        <!-- /.col-lg-4 -->
+      </ng-container>
+    </div>
   </div>
 </div>
-<app-marketing></app-marketing>
 <app-features></app-features>
+<app-marketing></app-marketing>

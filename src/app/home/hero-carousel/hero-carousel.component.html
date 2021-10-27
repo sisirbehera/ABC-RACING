@@ -1,4 +1,12 @@
-<div class="container-fluid carousel">
-  <p>hero-carousel works!</p>
+<div class="container-fluid">
+    <ngb-carousel #herocarousel *ngIf="eventList">
+      <ng-template ngbSlide *ngFor="let event of eventList">
+          <img [src]="event.img" alt="{{event.event}}">
+          <div class="carousel-caption">
+            <h3>{{ event.eventLocation }}</h3>
+            <p [innerText]="event.eventDescription"></p>
+          </div>
+      </ng-template>
+    </ngb-carousel>
 </div>
 
