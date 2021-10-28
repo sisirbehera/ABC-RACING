@@ -10,6 +10,7 @@ import { Angulartics2Module } from 'angulartics2';
 import { MarketingComponent } from './marketing/marketing.component';
 import { FeaturesComponent } from './features/features.component';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
+import { ModalComponent } from './ui-components/modal/modal.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
     HomeComponent,
     MarketingComponent,
     FeaturesComponent,
-    HeroCarouselComponent
+    HeroCarouselComponent,
+    ModalComponent
   ]
 })
 export class HomeModule { }

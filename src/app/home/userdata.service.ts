@@ -59,7 +59,7 @@ export class UserDataService {
   getUsers() {
     const uri = routes.user();
     return this.httpClient
-      .get<User[]>(uri)
+      .get<Observable<User[]>>(uri)
       .pipe(
         map(responseData => {
           console.log('response', responseData);

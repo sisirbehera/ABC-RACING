@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
+import { ModalComponent, Person } from './ui-components/modal/modal.component';
 import { UserDataService } from './userdata.service';
 
 export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: Address;
-  phone: string;
-  website: string;
-  company: Company;
+  id?: number;
+  name?: string;
+  username?: string;
+  email?: string;
+  address?: Address;
+  phone?: string;
+  website?: string;
+  company?: Company;
 }
 
 
@@ -43,8 +45,9 @@ export interface Company {
 export class HomeComponent implements OnInit {
   isLoading = false;
   users$: any;
+  public user: User | undefined;
 
-  constructor(private userDataService: UserDataService) { }
+  constructor(private userDataService: UserDataService, public modalService: NgbModal) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -57,4 +60,14 @@ export class HomeComponent implements OnInit {
       );
   }
 
+  openModal(data: any) {
+    // alert(data);
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.user = data;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+      }
+    });
+  }
 }
